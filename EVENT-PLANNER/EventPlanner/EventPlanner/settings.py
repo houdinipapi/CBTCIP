@@ -10,7 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+
+import os
+from dotenv import load_dotenv
 from pathlib import Path
+
+# Load the environment variables
+load_dotenv()
+
+# Get MySQL credentials from environment variables
+mysql_password = os.getenv("MYSQL_PASSWORD")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,8 +85,12 @@ WSGI_APPLICATION = "EventPlanner.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "EventPlanner",
+        "USER": "root",
+        "PASSWORD": mysql_password,
+        "HOST": "localhost",
+        "PORT": "3306",
     }
 }
 
