@@ -9,15 +9,15 @@ load_dotenv()
 # Get MySQL credentials from environment variables
 mysql_password = os.getenv("MYSQL_PASSWORD")
 
+
 def create_database():
     try:
         # Connect to the default MySQL database
         connection = mysql.connector.connect(
-            host = "localhost",
-            user = "root",
-            password = mysql_password,
+            host="localhost",
+            user="root",
+            password=mysql_password,
         )
-
 
         # Create a cursor object using the cursor() method
         cursor = connection.cursor()
@@ -32,12 +32,12 @@ def create_database():
     except Error as e:
         print(f"The error '{e}' occurred!")
 
-    finally:
-        # Close the database connection and cursor
-        if connection.is_connected():
-            cursor.close()
-            connection.close()
-            print("MySQL connection is closed!")
+    # finally:
+    #     # Close the database connection and cursor
+    #     if connection.is_connected():
+    #         cursor.close()
+    #         connection.close()
+    #         print("MySQL connection is closed!")
 
 
 # Call the function to create the database
