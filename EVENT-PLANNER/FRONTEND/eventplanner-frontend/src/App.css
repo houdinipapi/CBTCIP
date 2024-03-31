@@ -57,3 +57,11 @@
 .forms_buttons-action:hover {
   background-color: #4a90e2;
 }
+
+.label {
+  font-size: 16px;
+  color: #333;
+  font-family: sans-serif;
+  display: block;
+  margin-bottom: 16px;
+}

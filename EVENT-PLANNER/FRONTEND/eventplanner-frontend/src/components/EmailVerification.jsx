@@ -18,7 +18,7 @@ const EmalVerification = () => {
             toast.warning("OTP is required!");
         } else {
             try {
-                const res = await axios.post("http://localhost:8000/api/v1/auth/verify-email/", { otp: otp });
+                const res = await axios.post("http://localhost:8000/api/v1/auth/verify/", { "otp": otp });
 
                 if (res.status === 200) {
                     toast.success(res.data.message);
@@ -36,11 +36,18 @@ const EmalVerification = () => {
             <h2 className="forms_title">Email Verification</h2> {/* Apply forms_title class */}
             <form className="forms_form" onSubmit={handleSubmit}> {/* Apply forms_form class */}
                 <div className="forms_field"> {/* Apply forms_field class */}
-                    <label>OTP Code:</label>
-                    <input type="text" name="otp" value={otp} onChange={(e) => setOtp(e.target.value)} className="forms_field-input" /> {/* Apply forms_field-input class */}
+                    <label className="label">OTP Code:</label>
+                    <input
+                        type="text"
+                        name="otp"
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value)} className="forms_field-input"
+                    /> {/* Apply forms_field-input class */}
                 </div>
                 <div className="forms_buttons"> {/* Apply forms_buttons class */}
-                    <button type="submit" className="forms_buttons-action">Verify Email</button> {/* Apply forms_buttons-action class */}
+                    <button type="submit" className="forms_buttons-action">
+                        Verify Email
+                    </button> {/* Apply forms_buttons-action class */}
                 </div>
             </form>
         </div>
