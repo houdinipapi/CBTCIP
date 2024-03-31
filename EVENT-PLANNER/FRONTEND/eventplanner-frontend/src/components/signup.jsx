@@ -18,19 +18,19 @@ const Register = () => {
         confirm_password: "",
     });
 
-    console.log("Working!")
+    // console.log("Working!")
 
     // State for storing error messages
     const [errors, setErrors] = useState({});
 
-    console.log("Working!")
+    // console.log("Working!")
 
     // Function to handle input changes in the form fields
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    console.log("Working!")
+    // console.log("Working!")
 
     const { first_name, last_name, email, password, confirm_password } = formData;
 
@@ -39,11 +39,14 @@ const Register = () => {
         e.preventDefault();
 
         if (!first_name || !last_name || !email || !password || !confirm_password) {
+
+            console.log("All fields are required")
             setErrors({ ...errors, all: "All fields are required" });
-            return;
+            
         } else if (password !== confirm_password) {
+            console.log("Passwords do not match!");
+            toast.warning("Passwords do not match!");
             setErrors({ ...errors, password: "Passwords do not match" });
-            return;
         } else {
 
             console.log(formData);
