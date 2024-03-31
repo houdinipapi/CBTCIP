@@ -4,9 +4,13 @@ import dayjs from "dayjs";
 
 
 
-const token = localStorage.getItem("access") ? JSON.parse(localStorage.getItem("access")) : "";
+// const token = localStorage.getItem("access") ? JSON.parse(localStorage.getItem("access")) : "";
 
-const refresh_token = localStorage.getItem("refresh") ? JSON.parse(localStorage.getItem("refresh")) : "";
+const token = localStorage.getItem("access") || ""; // Retrieve token as string directly
+
+// const refresh_token = localStorage.getItem("refresh") ? JSON.parse(localStorage.getItem("refresh")) : "";
+
+const refresh_token = localStorage.getItem("refresh") || ""; // Retrieve refresh token as string directly
 
 const baseURL = "http://localhost:8000/api/v1/";
 
