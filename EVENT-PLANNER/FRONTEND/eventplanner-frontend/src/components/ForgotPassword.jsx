@@ -20,11 +20,13 @@ const ForgotPassword = () => {
                     console.log(res.data);
                     toast.success(res.data.message);
                 }
-                setEmail("")
+                
             } catch (error) {
                 console.log(error);
                 toast.error("Invalid Email!");
             }
+
+            setEmail("")
         }
     };
 

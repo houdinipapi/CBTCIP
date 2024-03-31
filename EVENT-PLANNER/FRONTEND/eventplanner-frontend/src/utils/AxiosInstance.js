@@ -8,6 +8,8 @@ import dayjs from "dayjs";
 
 const token = localStorage.getItem("access") || ""; // Retrieve token as string directly
 
+console.log("Access Token:", token);
+
 // const refresh_token = localStorage.getItem("refresh") ? JSON.parse(localStorage.getItem("refresh")) : "";
 
 const refresh_token = localStorage.getItem("refresh") || ""; // Retrieve refresh token as string directly
