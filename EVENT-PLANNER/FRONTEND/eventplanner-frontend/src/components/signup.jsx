@@ -11,37 +11,46 @@ const Register = () => {
 
     // State for storing signup form data
     const [formData, setFormData] = useState({
-        firstname: "",
-        lastname: "",
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        confirm_password: "",
     });
+
+    console.log("Working!")
 
     // State for storing error messages
     const [errors, setErrors] = useState({});
+
+    console.log("Working!")
 
     // Function to handle input changes in the form fields
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const { firstname, lastname, email, password, confirmPassword } = formData;
+    console.log("Working!")
+
+    const { first_name, last_name, email, password, confirm_password } = formData;
 
     // Function to submit the form and signup the user
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!firstname || !lastname || !email || !password || !confirmPassword) {
+        if (!first_name || !last_name || !email || !password || !confirm_password) {
             setErrors({ ...errors, all: "All fields are required" });
             return;
-        } else if (password !== confirmPassword) {
+        } else if (password !== confirm_password) {
             setErrors({ ...errors, password: "Passwords do not match" });
             return;
         } else {
+
+            console.log(formData);
+
             try {
                 // Make call to the backend to signup the user
-                const res = await axios.post("http://localhost:8000/api/v1/auth/register/", formData);
+                const res = await axios.post("http://localhost:8000/api/v1/auth/register/", formData)
 
                 const response = res.data
 
@@ -71,8 +80,8 @@ const Register = () => {
                             type="text" 
                             placeholder="First Name" 
                             className="forms_field-input" 
-                            name="firstname" 
-                            value={firstname} 
+                            name="first_name" 
+                            value={first_name} 
                             onChange={handleChange} 
                             required 
                         />
@@ -82,8 +91,8 @@ const Register = () => {
                             type="text" 
                             placeholder="Last Name" 
                             className="forms_field-input" 
-                            name="lastname" 
-                            value={lastname} 
+                            name="last_name" 
+                            value={last_name} 
                             onChange={handleChange} 
                             required 
                         />
@@ -115,8 +124,8 @@ const Register = () => {
                             type="password" 
                             placeholder="Confirm Password" 
                             className="forms_field-input" 
-                            name="confirmPassword" 
-                            value={confirmPassword} 
+                            name="confirm_password" 
+                            value={confirm_password} 
                             onChange={handleChange} 
                             required 
                         />

@@ -12,7 +12,7 @@ const baseURL = "http://localhost:8000/api/v1/";
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
-    "Content-type": "application/json",
+    "Content-Type": "application/json",
     headers: {
         "Authorization": localStorage.getItem("access") ? `Bearer ${token}` : ""
     },
