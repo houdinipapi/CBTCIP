@@ -3,7 +3,7 @@ import './App.css'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import  Register from './components/signup';
+import  { Register, EmailVerification } from './components';
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
         <ToastContainer />
         <Routes>
           <Route path="/signup" element={<Register/>} />
+          <Route path="/otp/verify" element={<EmailVerification/>} />
         </Routes>
       </Router>
     </>
