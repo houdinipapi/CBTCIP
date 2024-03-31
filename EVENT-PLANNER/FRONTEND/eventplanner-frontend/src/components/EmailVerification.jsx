@@ -32,25 +32,30 @@ const EmalVerification = () => {
 
 
     return (
-        <div className="user_forms-signup"> {/* Apply container class */}
-            <h2 className="forms_title">Email Verification</h2> {/* Apply forms_title class */}
-            <form className="forms_form" onSubmit={handleSubmit}> {/* Apply forms_form class */}
-                <div className="forms_field"> {/* Apply forms_field class */}
-                    <label className="label">OTP Code:</label>
-                    <input
-                        type="text"
-                        name="otp"
-                        value={otp}
-                        onChange={(e) => setOtp(e.target.value)} className="forms_field-input"
-                    /> {/* Apply forms_field-input class */}
-                </div>
-                <div className="forms_buttons"> {/* Apply forms_buttons class */}
-                    <button type="submit" className="forms_buttons-action">
-                        Verify Email
-                    </button> {/* Apply forms_buttons-action class */}
-                </div>
-            </form>
+        <div className="container">
+
+            <div className="user_forms-signup"> {/* Apply container class */}
+                <h2 className="forms_title">Email Verification</h2> {/* Apply forms_title class */}
+                <form className="forms_form" onSubmit={handleSubmit}> {/* Apply forms_form class */}
+                    <div className="forms_field"> {/* Apply forms_field class */}
+                        <label className="label">OTP Code:</label>
+                        <input
+                            type="text"
+                            name="otp"
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value)} className="forms_field-input"
+                        /> {/* Apply forms_field-input class */}
+                    </div>
+                    <div className="forms_buttons"> {/* Apply forms_buttons class */}
+                        <button type="submit" className="forms_buttons-action">
+                            Verify Email
+                        </button> {/* Apply forms_buttons-action class */}
+                    </div>
+                </form>
+            </div>
+
         </div>
+        
     );
 };
 

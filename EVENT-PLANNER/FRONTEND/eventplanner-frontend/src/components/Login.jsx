@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 
@@ -35,7 +35,7 @@ const Login = () => {
                         localStorage.setItem("refresh", JSON.stringify(res.data.refresh));
                         localStorage.setItem("user", JSON.stringify(res.data.user));
                         toast.success(response.message);
-                        navigate("/dashboard");
+                        navigate("/homepage");
                     }
                 } catch (error) {
                     toast.error("Invalid credentials!");
@@ -44,36 +44,49 @@ const Login = () => {
         };
     
         return (
-            <div className="user_forms-login">
-                <h2 className="forms_title">Login</h2>
-                <form className="forms_form" onSubmit={handleSubmit}>
-                    <div className="forms_field">
-                        <label className="label">Email:</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={email}
-                            onChange={handleChange}
-                            className="forms_field-input"
-                        />
-                    </div>
-                    <div className="forms_field">
-                        <label className="label">Password:</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={password}
-                            onChange={handleChange}
-                            className="forms_field-input"
-                        />
-                    </div>
-                    <div className="forms_buttons">
-                        <button type="submit" className="forms_buttons-action">
-                            Login
-                        </button>
-                    </div>
-                </form>
+
+            <div className="container">
+
+                <div className="user_forms-login">
+                    <h2 className="forms_title">Login</h2>
+                    <form className="forms_form" onSubmit={handleSubmit}>
+                        <div className="forms_field">
+                            <label className="label">Email:</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={email}
+                                onChange={handleChange}
+                                className="forms_field-input"
+                            />
+                        </div>
+
+                        <div className="forms_field">
+                            <label className="label">Password:</label>
+                            <input
+                                type="password"
+                                name="password"
+                                value={password}
+                                onChange={handleChange}
+                                className="forms_field-input"
+                            />
+                        </div>
+                        
+                        <div className="forms_buttons">
+                            <button type="submit" className="forms_buttons-action">
+                                Login
+                            </button>
+                        </div>
+
+                        <div className="forgot_password">
+                        <Link to="/forgot-password">Forgot Password?</Link>
+                        </div>
+                    </form>
+            
+                </div>
+
             </div>
+            
         );
 }
 

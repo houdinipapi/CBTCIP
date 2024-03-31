@@ -1,5 +1,12 @@
+
+.container {
+  /* background: linear-gradient(90deg, #C7C5F4, #776BCC); */
+  height: 100vh;
+  font-family: sans-serif;
+}
+
 /* Sign-up Form Styles */
-.user_forms-signup {
+.user_forms-signup, .user_forms-login {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -13,7 +20,7 @@
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
-  font-family: sans-serif;
+  /* font-family: Raleway, sans-serif; */
 }
 
 .forms_form {
@@ -61,7 +68,21 @@
 .label {
   font-size: 16px;
   color: #333;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   display: block;
   margin-bottom: 16px;
+}
+
+.forgot_password {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.forgot_password a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+.forgot_password a:hover {
+  text-decoration: underline;
 }

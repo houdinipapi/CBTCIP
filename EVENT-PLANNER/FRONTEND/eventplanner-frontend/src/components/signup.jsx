@@ -74,7 +74,8 @@ const Register = () => {
     };
 
     return (
-        <div className="user_forms-signup">
+        <div  className="container">
+            <div className="user_forms-signup">
             <h2 className="forms_title">Sign Up</h2>
             <form className="forms_form" onSubmit={handleSubmit}>
                 <fieldset className="forms_fieldset">
@@ -139,6 +140,8 @@ const Register = () => {
                 </div>
             </form>
         </div>
+        </div>
+        
     );
 }
 
