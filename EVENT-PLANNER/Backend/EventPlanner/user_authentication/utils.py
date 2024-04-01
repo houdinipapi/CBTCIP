@@ -15,7 +15,7 @@ def send_code(email):
     otp = generate_otp()
     user = User.objects.get(email=email)
     current_site = "myAuth.com"
-    message = f"Hello {user.first_name},\n\nYour one time password is {otp}.\n\nRegards,\nmyAuth Team"
+    message = f"Hello {user.first_name},\n\nYour one time password is {otp}.\n\nRegards,\nEventPlanner Team"
     from_email = settings.DEFAULT_FROM_EMAIL
 
     OneTimePassword.objects.create(user=user, otp_code=otp)

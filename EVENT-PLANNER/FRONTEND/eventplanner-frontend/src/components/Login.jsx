@@ -21,6 +21,9 @@ const Login = () => {
     
         const handleSubmit = async (e) => {
             e.preventDefault();
+
+            const {email, password} = formData;
+
     
             if (!email || !password) {
                 toast.warning("All fields are required!");
@@ -29,13 +32,21 @@ const Login = () => {
                     const res = await axios.post("http://localhost:8000/api/v1/auth/login/", formData);
 
                     const response = res.data;
+                    console.log(response);
+
+                    const user = {
+                        "email": response.data.email,
+                        "names": response.data.full_name
+                    }
+
+                    console.log(user);
     
                     if (res.status === 200) {
-                        localStorage.setItem("access", JSON.stringify(res.data.access));
-                        localStorage.setItem("refresh", JSON.stringify(res.data.refresh));
-                        localStorage.setItem("user", JSON.stringify(res.data.user));
+                        localStorage.setItem("access", JSON.stringify(response.data.access_token));
+                        localStorage.setItem("refresh", JSON.stringify(response.data.refresh_token));
+                        localStorage.setItem("user", JSON.stringify(user));
                         toast.success(response.message);
-                        navigate("/homepage");
+                        navigate("/home");
                     }
                 } catch (error) {
                     toast.error("Invalid credentials!");
