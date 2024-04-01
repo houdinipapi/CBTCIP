@@ -10,7 +10,9 @@ const HomePage = () => {
 
     const navigate = useNavigate();
 
-    const user = localStorage.getItem("user") || "";
+    // const user = localStorage.getItem("user") || "";
+
+    const user = JSON.parse(localStorage.getItem("user"))
 
     useEffect(() => {
         if (jwt_access === null && !user) {
