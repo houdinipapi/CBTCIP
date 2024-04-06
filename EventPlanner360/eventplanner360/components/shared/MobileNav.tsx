@@ -7,6 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import Image from 'next/image'
+import { Separator } from "@/components/ui/separator"
 
 const MobileNav = () => {
   return (
@@ -28,6 +29,7 @@ const MobileNav = () => {
                     width={128}
                     height={38}
                 />
+                <Separator className="border border-gray-50" />
             </SheetContent>
         </Sheet>
     </nav>
