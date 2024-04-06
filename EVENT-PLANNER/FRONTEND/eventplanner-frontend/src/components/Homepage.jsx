@@ -26,15 +26,39 @@ const HomePage = () => {
 
     const refresh = JSON.parse(localStorage.getItem("refresh"))
 
+    // const getSomeData = async () => {
+    //     console.log("Getting some data...");
+
+    //     const res = await axiosInstance.get("/auth/test-auth/");
+
+    //     if (res.status === 200) {
+    //         console.log(res.data);
+    //     }
+    // };
+
     const getSomeData = async () => {
         console.log("Getting some data...");
 
-        const res = await axiosInstance.get("/auth/test-auth/");
+        try {
+            const token = localStorage.getItem("access");
+            if (!token) {
+                throw new Error("Access token not found");
+            }
 
-        if (res.status === 200) {
-            console.log(res.data);
+            const res = await axiosInstance.get("/auth/test-auth/", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (res.status === 200) {
+                console.log(res.data);
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
         }
     };
+
 
 
     const handleLogout = async () => {

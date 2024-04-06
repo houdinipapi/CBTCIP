@@ -225,12 +225,10 @@ class SetNewPasswordSerializer(serializers.Serializer):
 class UserLogoutSerializer(serializers.Serializer):
     refresh_token = serializers.CharField()
 
-    default_error_message = {
-        "bad_token": "Token is invalid or expired!",
-        "no_token": "Token is required!",
+    default_error_messages = {
+        "bad_token": ("Token is invalid or expired!")
     }
 
-   
 
     def validate(self, attrs):
         self.token = attrs.get("refresh_token")
@@ -239,6 +237,7 @@ class UserLogoutSerializer(serializers.Serializer):
     
     def save(self, **kwargs):
         try:
-            RefreshToken(self.token).blacklist()
+            token = RefreshToken(self.token)
+            token.blacklist()
         except TokenError:
             return self.fail("bad_token")
